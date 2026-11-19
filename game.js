@@ -11,7 +11,7 @@ const player = {
     x: 0,
     y: H - 100,
     size: 160,
-    speed: 500
+    speed: 600
 }
 
 const keys = {};
@@ -127,12 +127,12 @@ function catchItem(item) {
 
 // 更新所有物件
 function update(dt) {
-    if (gameState != 'playing') return;
+    if (gameState !== 'playing') return;
     
     // 移動浣熊
     let dir = 0;
-    if (keys['ArrowLeft'] || keys['KeyA']) dir -= 1.2;
-    if (keys['ArrowRight'] || keys['KeyD']) dir += 1.2;
+    if (keys['ArrowLeft'] || keys['KeyA']) dir--;
+    if (keys['ArrowRight'] || keys['KeyD']) dir++;
     
     player.x += dir * player.speed * dt;
 
